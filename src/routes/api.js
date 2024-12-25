@@ -12,6 +12,7 @@ router.post("/blog-post", blogController.postBlog);
 router.get("/all-blogs", blogController.allBlogs);
 router.get("/single-blogs/:id", blogController.singleBlog);
 router.delete("/delete-blog/:id", blogController.deleteBlog);
+router.put("/update-blog/:id", blogController.updateBlog);
 
 
 
