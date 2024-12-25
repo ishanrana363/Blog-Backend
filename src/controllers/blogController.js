@@ -17,4 +17,14 @@ const postBlog = async (req, res) => {
 };
 
 
-module.exports = { postBlog };
+const allBlos = async (req, res) => {
+    try {
+        const blogs = await blogModel.find({}).sort({ createdAt:-1});
+        res.status(200).send({ message: "All blogs", blogs })
+    } catch (error) {
+        console.error(error);
+        return errorResponse(res, 500, "Something went wrong", error);
+    }
+};
+
+module.exports = { postBlog,allBlos };
