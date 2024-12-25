@@ -43,4 +43,20 @@ const singleBlog = async (req, res) => {
     }
 };
 
-module.exports = { postBlog,allBlogs,singleBlog };
+const deleteBlog = async(req, res) => {
+    try {
+        const id = req.params.id;
+        const filter = {
+            _id: id
+        };
+        const blog = await blogModel.findOneAndDelete(filter);
+        if (!blog) {
+            return errorResponse(res, 404, "Blog not found");
+        }
+        return successResponse(res,200,"Blog deleted successfully");
+    } catch (error) {
+        return errorResponse(res, 500, "Something went wrong", error);
+    }
+};
+
+module.exports = { postBlog,allBlogs,singleBlog,deleteBlog };
