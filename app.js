@@ -35,7 +35,20 @@ app.use(xss())
 app.use(hpp())
 
 // Using cors for enabling CORS
-app.use(cors())
+const allowedOrigins = ['http://localhost:5173'];
+
+app.use(cors({
+    origin: function (origin, callback) {
+        if (allowedOrigins.includes(origin) || !origin) {
+            callback(null, origin);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true, // Enable credentials
+}));
+
+app.options('*', cors());
 
 
 
