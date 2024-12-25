@@ -14,8 +14,8 @@ const blogSchema = new Schema({
         type: String,
     },
     author: {
-        name: String,
-        image: String
+        authorName: String,
+        authorImage: String
     }
 }, { timestamps: true, versionKey: false });
 
