@@ -17,7 +17,7 @@ const postBlog = async (req, res) => {
 };
 
 
-const allBlos = async (req, res) => {
+const allBlogs = async (req, res) => {
     try {
         const blogs = await blogModel.find({}).sort({ createdAt:-1});
         res.status(200).send({ message: "All blogs", blogs })
@@ -27,4 +27,4 @@ const allBlos = async (req, res) => {
     }
 };
 
-module.exports = { postBlog,allBlos };
+module.exports = { postBlog,allBlogs };

@@ -9,7 +9,7 @@ const blogController = require("../controllers/blogController");
 
 
 router.post("/blog-post", blogController.postBlog);
-router.post("/blog-all", blogController.allBlos );
+router.get("/all-blogs", blogController.allBlogs);
 
 
 

@@ -45,7 +45,7 @@ app.use(cors({
             callback(new Error('Not allowed by CORS'));
         }
     },
-    credentials: true, // Enable credentials
+    // credentials: true, // Enable credentials
 }));
 
 app.options('*', cors());
